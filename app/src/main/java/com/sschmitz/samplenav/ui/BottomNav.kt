@@ -11,6 +11,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.sschmitz.samplenav.ui.ext.switchTabs
 import com.sschmitz.samplenav.ui.navigation.NavigationTree
 
 @Composable
@@ -26,21 +27,7 @@ fun BottomNav(
                 icon = { Icon(tree.image, contentDescription = stringResource(tree.displayName)) },
                 label = { Text(stringResource(tree.displayName)) },
                 selected = currentDestination?.hierarchy?.any { it.route == tree.route } == true,
-                onClick = {
-                    navController.navigate(tree.route) {
-                        // Pop up to the start destination of the graph to
-                        // avoid building up a large stack of destinations
-                        // on the back stack as users select items
-                        popUpTo(navController.graph.findStartDestination().id) {
-                            saveState = true
-                        }
-                        // Avoid multiple copies of the same destination when
-                        // reselecting the same item
-                        launchSingleTop = true
-                        // Restore state when reselecting a previously selected item
-                        restoreState = true
-                    }
-                }
+                onClick = { navController.switchTabs(tree.route) }
             )
         }
     }

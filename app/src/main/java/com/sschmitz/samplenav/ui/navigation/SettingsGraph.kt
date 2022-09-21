@@ -7,12 +7,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.sschmitz.samplenav.R
 import com.sschmitz.samplenav.ui.Route
+import com.sschmitz.samplenav.ui.ext.switchTabs
 import kotlinx.coroutines.launch
 
 fun NavGraphBuilder.settingsGraph(
@@ -36,7 +38,7 @@ fun NavGraphBuilder.settingsGraph(
                 Button(onClick = { navController.navigate(Route.SETTINGS_DETAILS) } ) {
                     Text(text = stringResource(id = R.string.settings_overview_to_settings_details))
                 }
-                Button(onClick = { navController.navigate(Route.HOME_DETAILS) }) {
+                Button(onClick = { navController.switchTabs(Route.HOME_DETAILS) }) {
                     Text(text = stringResource(id = R.string.settings_overview_to_home_details))
                 }
             }
