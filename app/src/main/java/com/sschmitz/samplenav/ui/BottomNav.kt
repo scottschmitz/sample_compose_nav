@@ -27,7 +27,20 @@ fun BottomNav(
                 icon = { Icon(tree.image, contentDescription = stringResource(tree.displayName)) },
                 label = { Text(stringResource(tree.displayName)) },
                 selected = currentDestination?.hierarchy?.any { it.route == tree.route } == true,
-                onClick = { navController.switchTabs(tree.route) }
+                onClick = {
+                    when (currentDestination?.hierarchy?.any { it.route == tree.route } == true) {
+                        true -> {
+                            if (currentDestination?.route != tree.startDestinationRoute) {
+                                navController.navigate(route = tree.route) {
+                                    popUpTo(navController.graph.startDestinationId) {
+                                        inclusive = false
+                                    }
+                                }
+                            }
+                        }
+                        else -> navController.switchTabs(tree.route)
+                    }
+                }
             )
         }
     }
