@@ -8,7 +8,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.sschmitz.samplenav.R
 import com.sschmitz.samplenav.ui.Route
 
-enum class NavigationTree(@StringRes val displayName: Int, val image: ImageVector, val route: String){
-    HOME(R.string.bottom_nav_home, Icons.Default.Home, Route.HOME_ROOT),
-    SETTINGS(R.string.bottom_nav_settings, Icons.Default.Settings, Route.SETTINGS_ROOT)
+enum class NavigationTree(
+    @StringRes val displayName: Int,
+    val image: ImageVector,
+    val route: String,
+    val startDestinationRoute: String
+) {
+    HOME(R.string.bottom_nav_home, Icons.Default.Home, Route.HOME_ROOT, Route.HOME_OVERVIEW),
+    SETTINGS(R.string.bottom_nav_settings, Icons.Default.Settings, Route.SETTINGS_ROOT, Route.SETTINGS_OVERVIEW)
 }
