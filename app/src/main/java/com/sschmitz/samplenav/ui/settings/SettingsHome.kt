@@ -24,6 +24,7 @@ fun SettingsHome(
   toSettingsDetails: () -> Unit,
   toHomeDetailsBroken: () -> Unit,
   toHomeDetailsFixed: () -> Unit,
+  toHomeDetailsExtra: () -> Unit,
   modifier: Modifier = Modifier
 ) {
   Column(modifier = modifier) {
@@ -49,6 +50,10 @@ fun SettingsHome(
     Button(onClick = toHomeDetailsFixed) {
       Text(text = stringResource(id = R.string.settings_overview_to_home_details_fixed))
     }
+
+    Button(onClick = toHomeDetailsExtra) {
+      Text(text = stringResource(id = R.string.settings_overview_to_home_details_extra))
+    }
   }
 }
 
@@ -61,6 +66,7 @@ fun PreviewSettingsHome() {
       toSettingsDetails = { },
       toHomeDetailsBroken = { },
       toHomeDetailsFixed = { },
+      toHomeDetailsExtra = { },
       modifier = Modifier.fillMaxSize().padding(16.dp)
     )
   }

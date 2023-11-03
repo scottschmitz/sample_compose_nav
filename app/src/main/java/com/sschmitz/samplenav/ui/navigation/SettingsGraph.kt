@@ -33,6 +33,7 @@ fun NavGraphBuilder.settingsGraph(
                 toSettingsDetails = { navController.navigate(Route.SETTINGS_DETAILS) },
                 toHomeDetailsBroken = { navController.navigate(Route.HOME_DETAILS) },
                 toHomeDetailsFixed = { navController.switchTabs(Route.HOME_DETAILS) },
+                toHomeDetailsExtra = { navController.switchTabs(Route.HOME_DETAILS_EXTRA) },
                 modifier = Modifier.fillMaxSize().padding(16.dp)
             )
         }
