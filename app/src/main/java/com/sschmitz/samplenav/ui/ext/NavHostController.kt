@@ -19,3 +19,23 @@ fun NavHostController.switchTabs(route: String) {
   }
 }
 
+/**
+ * Attempt to pop up to the destination. If the destination is present
+ * in the back stack then it will pop up to it. If the destination
+ * is not present in the back stack it will navigate to it and remove
+ * the current screen from the stack.
+ */
+fun NavHostController.popUpTo(route: String) {
+  try {
+    this.getBackStackEntry(route)
+    popBackStack(route, false)
+  } catch (exception: IllegalArgumentException) {
+    navigate(route) {
+      currentBackStackEntry?.destination?.route?.let {
+        popUpTo(it) {
+          inclusive = true
+        }
+      }
+    }
+  }
+}

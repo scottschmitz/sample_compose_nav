@@ -8,11 +8,15 @@
     <string name="home_overview_to_home_details">To Home Details</string>
 
     <string name="home_details_title">Home - Details</string>
+    <string name="home_details_to_extra_details">To Home Extra Details</string>
+
+    <string name="home_details_extra_title">Home - Details - Extra</string>
 
     <string name="settings_overview_title">Settings</string>
     <string name="settings_overview_to_settings_details">To Settings Details</string>
     <string name="settings_overview_to_home_details_broken">To Home Details - Broken</string>
     <string name="settings_overview_to_home_details_fixed">To Home Details - Fixed</string>
+    <string name="settings_overview_to_home_details_extra">To Home Details Extra</string>
     <string name="navigation_broken">Settings Bottom Nav No Longer Functional</string>
 
     <string name="settings_details_title">Settings - Details</string>
