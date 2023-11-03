@@ -8,9 +8,9 @@ To decide if this is you, imagine we have a TV Show streaming app, and we have a
 
 If your answer is back on the home screen, then fantastic! Everything works exactly as intended!
 
-If your answer is, well it would be nice to show the Episode Screen and then the Show Screen and _then_ the Home Screen, you may want to make keep reading.
+If your answer is, well it would be nice to show the Episode Screen and then the Show Screen and _then_ the Home Screen, you may want to keep reading.
 
-But, before we get started, lets take a look at how this will look without any additional work. Note that navigating through the buttons Home -> To Details -> To Extra Details the back button walks up the tree. However, when navigating from Settings -> To Details Extra the back button _skips_ Home - Details (because it was never in the stack). At this point, it is probably important to note that this is a partial consequence of [Part One](https://michiganlabs.com/news/cross-tab-navigation-in-jetpack-compose) in which we separated the navigation stacks by the tab you are on, and back button doesn't return you back to Settings.
+But, before we get started, let's take a look at how this will look without any additional work. Note that navigating through the buttons Home -> To Details -> To Extra Details the back button walks up the tree. However, when navigating from Settings -> To Details Extra the back button _skips_ Home - Details (because it was never in the stack). At this point, it is probably important to note that this is a partial consequence of [Part One](https://michiganlabs.com/news/cross-tab-navigation-in-jetpack-compose) in which we separated the navigation stacks by the tab you are on, and back button doesn't return you back to Settings.
 
 ![](./before.gif)
 
