@@ -1,5 +1,6 @@
 package com.sschmitz.samplenav.ui.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,6 +17,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.sschmitz.samplenav.R
 import com.sschmitz.samplenav.ui.Route
+import com.sschmitz.samplenav.ui.ext.popUpTo
 import com.sschmitz.samplenav.ui.ext.switchTabs
 import com.sschmitz.samplenav.ui.settings.SettingsDetails
 import com.sschmitz.samplenav.ui.settings.SettingsHome
@@ -34,13 +36,20 @@ fun NavGraphBuilder.settingsGraph(
                 toHomeDetailsBroken = { navController.navigate(Route.HOME_DETAILS) },
                 toHomeDetailsFixed = { navController.switchTabs(Route.HOME_DETAILS) },
                 toHomeDetailsExtra = { navController.switchTabs(Route.HOME_DETAILS_EXTRA) },
-                modifier = Modifier.fillMaxSize().padding(16.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
             )
         }
 
         composable(Route.SETTINGS_DETAILS) {
+            BackHandler {
+                navController.popUpTo(Route.SETTINGS_OVERVIEW)
+            }
             SettingsDetails(
-                modifier = Modifier.fillMaxSize().padding(16.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
             )
         }
     }

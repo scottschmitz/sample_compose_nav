@@ -19,3 +19,17 @@ fun NavHostController.switchTabs(route: String) {
   }
 }
 
+fun NavHostController.popUpTo(route: String) {
+  try {
+    this.getBackStackEntry(route)
+    popBackStack(route, false)
+  } catch (exception: IllegalArgumentException) {
+    navigate(route) {
+      currentBackStackEntry?.destination?.route?.let {
+        popUpTo(it) {
+          inclusive = true
+        }
+      }
+    }
+  }
+}

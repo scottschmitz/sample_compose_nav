@@ -51,6 +51,8 @@ fun SettingsHome(
       Text(text = stringResource(id = R.string.settings_overview_to_home_details_fixed))
     }
 
+    Spacer(modifier = Modifier.height(8.dp))
+
     Button(onClick = toHomeDetailsExtra) {
       Text(text = stringResource(id = R.string.settings_overview_to_home_details_extra))
     }

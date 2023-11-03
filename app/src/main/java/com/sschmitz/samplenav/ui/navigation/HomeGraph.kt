@@ -1,5 +1,6 @@
 package com.sschmitz.samplenav.ui.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
@@ -9,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.sschmitz.samplenav.ui.Route
+import com.sschmitz.samplenav.ui.ext.popUpTo
 import com.sschmitz.samplenav.ui.home.HomeDetails
 import com.sschmitz.samplenav.ui.home.HomeDetailsExtra
 import com.sschmitz.samplenav.ui.home.HomeOverview
@@ -28,6 +30,9 @@ fun NavGraphBuilder.homeGraph(navController: NavHostController) {
         }
 
         composable(Route.HOME_DETAILS) {
+            BackHandler {
+                navController.popUpTo(Route.HOME_OVERVIEW)
+            }
             HomeDetails(
                 toExtraDetails = { navController.navigate(Route.HOME_DETAILS_EXTRA) },
                 modifier = Modifier
@@ -37,6 +42,9 @@ fun NavGraphBuilder.homeGraph(navController: NavHostController) {
         }
 
         composable(Route.HOME_DETAILS_EXTRA) {
+            BackHandler {
+                navController.popUpTo(Route.HOME_DETAILS)
+            }
             HomeDetailsExtra(
                 modifier = Modifier
                     .fillMaxSize()
