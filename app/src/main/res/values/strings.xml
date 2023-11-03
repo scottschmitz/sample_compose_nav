@@ -8,6 +8,9 @@
     <string name="home_overview_to_home_details">To Home Details</string>
 
     <string name="home_details_title">Home - Details</string>
+    <string name="home_details_to_extra_details">To Home Extra Details</string>
+
+    <string name="home_details_extra_title">Home - Details - Extra</string>
 
     <string name="settings_overview_title">Settings</string>
     <string name="settings_overview_to_settings_details">To Settings Details</string>
